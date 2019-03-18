@@ -5,6 +5,10 @@
  */
 html {
   box-sizing: border-box;
+  height: 100%;
+  margin: 0px;
+
+
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -16,10 +20,19 @@ html {
 
 body {
   margin: 0;
-  color: #244751;
-  background-color: #eee;
+  color: #292929; 
+  background-color: #bebebe;
+  font-family: 'Roboto Condensed', sans-serif;
+  background: radial-gradient(circle, #00a087, white);
 }
-
+main {
+  padding-top: 9em;
+  height: 55em;
+    width: 32em;
+    margin: auto;
+    background-color: #ffffff;
+    text-align: center;
+    }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
