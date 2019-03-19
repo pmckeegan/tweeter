@@ -7,7 +7,7 @@
     background:#e6e6e6;
 }
 .new-tweet h2 {
-    color: rgb(0, 0, 0);
+    color: #000000;
     border-bottom: 1px solid #000000;
   }
 .new-tweet textarea {
@@ -22,4 +22,11 @@
 span.counter {
     float: right;
 }
-  -webkit-appearance: none;
+
+.red {
+  color: red;
+}
+
+
+
+-webkit-appearance: none;
