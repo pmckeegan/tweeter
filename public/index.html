@@ -12,13 +12,73 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
      
     <!-- Navbar CSS -->
-     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
      
-     <!-- NewTweet Tweetbox CSS -->
-     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <!-- NewTweet Tweetbox CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
-      <!-- Tweet-container CSS -->
-      <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
+    <!-- Tweet-container CSS -->
+    <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />    
+  </head>
+
+  <body>
+
+<!-- Top nav bar (fixed) -->
+
+    <nav id="nav-bar" >
+      <img class="logo" src="/images/bird.png">
+      <span class="header">tweeter.</span>
+    </nav>
+
+<!-- Page-specific (main) content here -->
+
+  <main class="container">
+    <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method = "POST" action = "/tweets/">
+          <textarea name="text" placeholder="What are you humming about??"></textarea>
+          <input class="submit" type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+      </section>
+
+<!-- tweet container -->
+
+    <section class="tweet-container">
+      <article class="tweet">
+        <header class="header">
+          <img class="icon" src="/images/duck.png">
+          
+          <div class="username">
+          <h2>Hunter2</h2>
+          </div>
+          
+          <div class="userhandle">
+          <p>@hunter2</p>
+          </div>
+
+        </header>
+        <p class="content">This is a tweet by a duck.</p>
+        <footer class = "footer">
+          <div class = "dateposted">
+            <p>Posted 10 years ago</p>
+          </div>
+          <!-- <div class = "footerimages">
+              <div>
+              <img src="images/flag-solid.svg"/>
+              </div>
+              <div>
+              <img src="images/heart-solid.svg"/>
+              </div>
+              <div>
+              <img src="images/retweet-solid.svg"/>
+            </div>
+            </div> -->
+        </footer>
+      </article>
+    </section>     
+  </main>
+
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -28,40 +88,6 @@
     
     <!-- counter JS -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    
-  </head>
-
-  <body>
-
-    <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar" >
-      <img class="logo" src="/images/bird.png">
-      <span class="header">tweeter.</span>
-    </nav>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-        <section class="new-tweet">
-            <h2>Compose Tweet</h2>
-            <form method = "POST" action = "/tweets/">
-              <textarea name="text" placeholder="What are you humming about??"></textarea>
-              <input class="submit" type="submit" value="Tweet">
-              <span class="counter">140</span>
-            </form>
-          </section>
-          <!-- tweet container -->
-          <section class="tweet-container">
-            <article>
-            <header>
-              <img class="icon" src="/images/duck.png">
-              <h2 class = "username">Hunter2</h2>
-              <p class = "userhandle">@hunter2</p>
-            </header>
-              <p class="tweet">This is a tweet by a duck.</p>
-            <footer class = "footer">Posted 10 years ago</footer>
-            </article>
-          </section>     
-    </main>
 
   </body>
 </html>

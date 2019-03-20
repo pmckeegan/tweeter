@@ -1,8 +1,9 @@
 
-
-
 /* tweet container css */
-.container .tweet-container {  
+.container .tweet-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     opacity: 0.5 ;
     color: #292929;
     padding : 0em 0em 0em 0em; 
@@ -11,57 +12,69 @@
     margin: 1em 2em;
     border: 1px solid #b9b9b9;
     border-radius: 1em;
-  }
-
-  .container .tweet-container:hover
-{
+}
+.container .tweet-container:hover {
 	opacity: 1;
 }
-
-
-  .container .tweet-container :hover {
-    opacity: 1;
-  }
-
-.container .tweet-container  header {
-    margin: 0em 0em 0em 0em;
+.container .tweet-container .header {    
+    align-items: flex-start;
+    float: left;
     height: 4em;
     width: 27.9em;
-    background:#e6e6e6;
+    background:#c9c9c9;
     border-radius: 1em 1em 0em 0em;
-  }
-
+}
 .container .tweet-container .icon {
+    justify-content: flex-start; 
     margin: 0.25em 0em 0em 0.25em;
     float: left;
     width : 3.5em;
     height : 3.5em;
     border-radius: 1em;
-
-  }
-
-.container .tweet-container .username{
-    float: left;
-    margin: .5em 0em 0em .5em;
-    background:#e6e6e6;
-    border-radius: 1em;
-  }
-
-.container .tweet-container .userhandle {
-  float: right ;
-  font-style: italic;
-  margin: 1em
 }
 
-.container .tweet-container .tweet{
-    margin: 3em 0em 0em 2em;
+.container .tweet-container .username {
+    justify-content: flex-start;
     float: left;
-  }
-  
-.container .tweet-container .footer {
-    border-top: 1px solid rgb(202, 202, 202);
+    margin: 0em 0em 0em 1em;
+    
+    border-radius: 1em;
+}
 
-    text-align: left;
-    margin: 8em 1em;
+.container .tweet-container .userhandle {
+  justify-content: flex-end;
+  float: right;
+  font-style: italic;
+  margin: .5em 
+}
+
+/* the tweet */
+.container .tweet-container .content {
+    align-items: center;
+    margin: 3em 0em 0em 1em;
+    float: left;
+}
+  
+.container .tweet-container .dateposted {
+    align-items: flex-end;
+    
+    border-top: 5px solid #cacaca;
+    justify-content: left;
+    margin: 7em .5em;
     font-style: italic;
-  }
+}
+.container .tweet-container .footer {
+    align-self: flex-end;
+    flex-direction: column;
+
+    width: 5em;
+    height: 7em;
+}
+
+/* those tiny icons on the bottom right */
+ .container .tweet-container .footerimages img {
+    align-self: flex-end;
+    float: right;
+    width: 1em;
+    height: 1em;
+}
