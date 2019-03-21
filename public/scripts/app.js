@@ -1,68 +1,20 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+$(document).ready(function() {
 
-// Test / driver code (temporary). Eventually will get this from the server.
-// Fake data taken from tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1461113796368
-  }
-];
+  
+    $( "#nav-bar #compose" ).click(function() {
+      $( ".container .new-tweet" ).slideToggle( "slow", function() {
+      $( ".container .new-tweet textarea" ).focus();
+    });
+  });
 
 function renderTweets(tweets) {
-
+$(".tweet-container").empty();
+tweets.reverse();
   for (var i = 0; i < tweets.length; i++) {
     console.log(tweets[i]);
     var tweetElement = createTweetElement(tweets[i]);
     $(".tweet-container").append(tweetElement);
   }
-  // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
 }
 
 function createTweetElement(tweetData){
@@ -71,7 +23,7 @@ function createTweetElement(tweetData){
     <header class="header"> 
       <img class="icon" src="${tweetData.user.avatars.regular}"/>
 
-      <div class = "username">${tweetData.user.name}</div>
+      <h2 class = "username">${tweetData.user.name}</h2>
 
       <div class = "userhandle">${tweetData.user.handle}</div> 
     </header> 
@@ -88,14 +40,49 @@ function createTweetElement(tweetData){
     </article>`
 };
 
-$(document).ready(function() {
 
-  renderTweets(data);
-    // var $tweet = createTweetElement(tweetData);
-    // Test / driver code (temporary)
-    // console.log($tweet); // to see what it looks like
-    // $('.tweet-container').append($tweet); 
+//function to retrieve the tweets from tweets.js
+  function loadTweets(){
+    console.log("this is running!!");
+    $.ajax({ 
+      method: "GET",
+      url: "http://localhost:8080/tweets",
+    })
+    .then(function (tweets) {
+     renderTweets(tweets);
+    });
     
-    // to add it to the page so 
-    //we can make sure it's got all the right elements, classes, etc.
-  }); 
+    return;
+  }
+//this loads the tweets from the tweets.js file
+loadTweets();
+
+//function to post the new tweet to the tweets file
+  $( "#tweetbox" ).submit(function (event) {
+    var serialized = ( $( this ).serialize() );
+    var textbox = $("#tweetbox textarea").val();;
+    event.preventDefault();
+
+    if (!textbox){
+      console.log("empty textbox")
+        $( ".container .new-tweet .error2" ).slideDown( "fast");
+    } else if ((textbox).length > 140) {
+      $( ".container .new-tweet .error1" ).slideToggle( "fast");
+        $( ".container .new-tweet textarea" ).focus();
+    } else {
+    $.ajax({
+      type: 'POST',
+      url: "/tweets/",
+      data: serialized,
+    })
+    $( "#tweetbox textarea").val("");
+    $( ".container .new-tweet .error2" ).slideUp( "fast");
+    $( ".container .new-tweet .error1" ).slideUp( "fast");
+
+
+  console.log(serialized);
+    }
+   
+  });
+  ;
+});

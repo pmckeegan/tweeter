@@ -28,6 +28,25 @@ span.counter {
   color: red;
 }
 
+.new-tweet .error1 {
+  text-align:center;
+  color: #ffffff;
+  border: 1em solid #d14f4f ;
+  background:#f00;
+  border-radius: 1em;
+  display: none;
+
+}
+.new-tweet .error2 {
+  text-align:center;
+  color: #ffffff;
+  border: 1em solid #d14f4f ;
+  background:#f00;
+  border-radius: 1em;
+  display: none;
+
+}
+
 
 
 -webkit-appearance: none;

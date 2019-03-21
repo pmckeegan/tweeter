@@ -2,11 +2,13 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
+    <title>tweeter home.</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+    
+
     
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -21,13 +23,12 @@
     <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />    
   </head>
 
-  <body>
-
+<body>
 <!-- Top nav bar (fixed) -->
-
     <nav id="nav-bar" >
       <img class="logo" src="/images/bird.png">
       <span class="header">tweeter.</span>
+      <button id="compose"><img src = "/images/feather-alt-solid.svg"></button>
     </nav>
 
 <!-- Page-specific (main) content here -->
@@ -35,11 +36,16 @@
   <main class="container">
     <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method = "POST" action = "/tweets/">
-          <textarea name="text" placeholder="What are you humming about??"></textarea>
+        <h5 class="error1">Tweet is too long.</h5>
+<h5 class="error2">Nothing to post!</h5>
+        <form id="tweetbox" method = "POST" action = "/tweets/">
+          <textarea name="text" placeholder="What are you humming about??">
+          </textarea>
           <input class="submit" type="submit" value="Tweet">
-          <span class="counter">140</span>
+        <span class="counter">140</span>
+        
         </form>
+       
       </section>
 
 <!-- tweet container -->
@@ -47,39 +53,26 @@
     <section class="tweet-container">
       <article class="tweet">
         <header class="header">
-          <img class="icon" src="/images/duck.png">
+          <img class="icon">
           
-          <div class="username">
-          <h2>Hunter2</h2>
+          <div>
+          <h2 class="username"></h2>
           </div>
           
           <div class="userhandle">
-          <p>@hunter2</p>
+          <p></p>
           </div>
 
         </header>
-        <p class="content">This is a tweet by a duck.</p>
+        <p class="content"></p>
         <footer class = "footer">
           <div class = "dateposted">
-            <p>Posted 10 years ago</p>
+            <p></p>
           </div>
-          <!-- <div class = "footerimages">
-              <div>
-              <img src="images/flag-solid.svg"/>
-              </div>
-              <div>
-              <img src="images/heart-solid.svg"/>
-              </div>
-              <div>
-              <img src="images/retweet-solid.svg"/>
-            </div>
-            </div> -->
         </footer>
       </article>
     </section>     
   </main>
-
-
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
