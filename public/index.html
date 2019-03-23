@@ -22,28 +22,28 @@
     <!-- Tweet-container CSS -->
     <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />    
   </head>
+  
 
 <body>
 <!-- Top nav bar (fixed) -->
     <nav id="nav-bar" >
-      <img class="logo" src="/images/bird.png">
+      <a href="#top">
+      <img class="logo" src="/images/bird.png"></a>
       <span class="header">tweeter.</span>
-      <button id="compose"><img src = "/images/feather-alt-solid.svg"></button>
+      <img id ="compose" src = "/images/penpaper.svg">
     </nav>
 
 <!-- Page-specific (main) content here -->
-
+<a name="top"></a>
   <main class="container">
     <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <h5 class="error1">Tweet is too long.</h5>
-<h5 class="error2">Nothing to post!</h5>
+        <h5 class="error2">Nothing to post!</h5>
         <form id="tweetbox" method = "POST" action = "/tweets/">
-          <textarea name="text" placeholder="What are you humming about??">
-          </textarea>
+          <textarea name="text" placeholder="Share your thoughts!"></textarea>
           <input class="submit" type="submit" value="Tweet">
         <span class="counter">140</span>
-        
         </form>
        
       </section>

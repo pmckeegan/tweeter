@@ -6,7 +6,7 @@
     clear: both;
     flex-direction: column;
     justify-content: flex-start;
-    opacity: 0.8 ;
+    opacity: 0.75 ;
     color: #292929;
     padding : 0em 0em 0em 0em; 
     width: 28em;
@@ -32,7 +32,7 @@
     float: left;
     height: 4em;
     width: 27.9em;
-    background:#c9c9c9;
+    background:#00a088;
     border-radius: 1em 1em 0em 0em;
 }
 .container .tweet-container .icon {
@@ -88,8 +88,8 @@
 }
 
 .container .tweet-container .footerimages img {
-    width: 5%; 
-    height: 5%;
+    width: 8%; 
+    height: 8%;
     opacity: 0.5;
 }
 

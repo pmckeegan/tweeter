@@ -19,20 +19,20 @@ html {
  */
 
 body {
-  margin: 0;
+  margin: 0rem;
   color: #292929; 
-  background-color: #bebebe;
+  background-color: #b95e77;
   font-family: 'Roboto Condensed', sans-serif;
-  background: radial-gradient(circle, #00a087, white);
+  /* background: radial-gradient( #00a047, white); */
 }
 main {
-  padding-top: 9em;
+  padding-top: 4em;
   height: 100%;
     width: 32em;
     margin: auto;
     background-color: #ffffff;
     text-align: center;
-    }
+}
 
 
 

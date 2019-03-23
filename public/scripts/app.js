@@ -1,31 +1,30 @@
 $(document).ready(function() {
 
-  
-    $( "#nav-bar #compose" ).click(function() {
+  //compose window animation
+      $( "#nav-bar #compose" ).click(function() {
       $( ".container .new-tweet" ).slideToggle( "slow", function() {
       $( ".container .new-tweet textarea" ).focus();
     });
   });
 
+//find existing tweets
 function renderTweets(tweets) {
 $(".tweet-container").empty();
-tweets.reverse();
   for (var i = 0; i < tweets.length; i++) {
-    console.log(tweets[i]);
     var tweetElement = createTweetElement(tweets[i]);
-    $(".tweet-container").append(tweetElement);
+    $(".tweet-container").prepend(tweetElement);
   }
 }
-
+//send existing tweets to css
 function createTweetElement(tweetData){
     return `
     <article class="tweet"> 
-    <header class="header"> 
-      <img class="icon" src="${tweetData.user.avatars.regular}"/>
+      <header class="header"> 
+       <img class="icon" src="${tweetData.user.avatars.regular}"/>
 
-      <h2 class = "username">${tweetData.user.name}</h2>
+        <h2 class = "username">${tweetData.user.name}</h2>
 
-      <div class = "userhandle">${tweetData.user.handle}</div> 
+        <div class = "userhandle">${tweetData.user.handle}</div> 
     </header> 
 
     <p class="content">${tweetData.content.text}</p>
@@ -36,6 +35,7 @@ function createTweetElement(tweetData){
           <img src="images/retweet-solid.svg"/>
       </div>
        <div class="dateposted">${tweetData.created_at}</div>
+      
     </footer>
     </article>`
 };
@@ -43,7 +43,6 @@ function createTweetElement(tweetData){
 
 //function to retrieve the tweets from tweets.js
   function loadTweets(){
-    console.log("this is running!!");
     $.ajax({ 
       method: "GET",
       url: "http://localhost:8080/tweets",
@@ -58,31 +57,31 @@ function createTweetElement(tweetData){
 loadTweets();
 
 //function to post the new tweet to the tweets file
-  $( "#tweetbox" ).submit(function (event) {
-    var serialized = ( $( this ).serialize() );
-    var textbox = $("#tweetbox textarea").val();;
-    event.preventDefault();
+$( "#tweetbox" ).submit(function (event) {
+  var serialized = ( $( this ).serialize() );
+  var textbox = $("#tweetbox textarea").val();;
+  event.preventDefault();
 
-    if (!textbox){
-      console.log("empty textbox")
-        $( ".container .new-tweet .error2" ).slideDown( "fast");
-    } else if ((textbox).length > 140) {
+  //empty textbox error alert
+  if (!textbox){
+      $( ".container .new-tweet .error2" ).slideDown( "fast");
+  //maximum tweet length exceeded alert
+  } else if ((textbox).length > 140) {
       $( ".container .new-tweet .error1" ).slideToggle( "fast");
-        $( ".container .new-tweet textarea" ).focus();
-    } else {
-    $.ajax({
-      type: 'POST',
-      url: "/tweets/",
-      data: serialized,
-    })
-    $( "#tweetbox textarea").val("");
-    $( ".container .new-tweet .error2" ).slideUp( "fast");
-    $( ".container .new-tweet .error1" ).slideUp( "fast");
-
-
-  console.log(serialized);
+      $( ".container .new-tweet textarea" ).focus();
+      } else {
+      $.ajax({
+        type: 'POST',
+        url: "/tweets/",
+        data: serialized,
+      })
+//clear text box and errors, reset counter
+ $( "#tweetbox textarea").val("");
+$( ".container .new-tweet .error2" ).slideUp( "fast");
+$( ".container .new-tweet .error1" ).slideUp( "fast");
+loadTweets();
+counter = 140;
     }
    
   });
-  ;
 });
