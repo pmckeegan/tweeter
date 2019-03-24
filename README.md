@@ -9,3 +9,7 @@ This is an assignment for Lighthouse Labs with the goal of learning these langua
 
 - Express
 - Node 5.10.x or above
+
+
+##Screenshot
+!["Screenshot of main page of Tweeter"](https://github.com/pmckeegan/tweeter/blob/feature/mongodb/docs/Screenshot%20from%202019-03-23%2019-34-44.png?raw=true)
