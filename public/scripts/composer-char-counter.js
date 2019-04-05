@@ -7,6 +7,10 @@ $(document).ready(function() {
     $("form").find(".counter").text(counter) 
     if (counter < 1) { 
     $(".counter").addClass("red");
+    } else if (counter > 1) {
+      $(".counter").removeClass("red");
+
     }
+    
   });
 });

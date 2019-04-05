@@ -23,14 +23,15 @@ body {
   color: #292929; 
   background-color: #b95e77;
   font-family: 'Roboto Condensed', sans-serif;
-  /* background: radial-gradient( #00a047, white); */
+  background: linear-gradient(0.25turn, #46a188, white, #46a188);
+  /* background: linear-gradient( #46a188 50%, #eee 75%, #333 75%); */
 }
 main {
   padding-top: 4em;
   height: 100%;
     width: 32em;
     margin: auto;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     text-align: center;
 }
 

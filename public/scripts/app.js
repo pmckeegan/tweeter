@@ -1,9 +1,8 @@
-
-
 $(document).ready(function() {
-  //compose window animation
+
+//compose window animation
       $( "#nav-bar #compose" ).click(function() {
-      $( ".container .new-tweet" ).slideToggle( "slow", function() {
+      $( ".container .new-tweet" ).slideToggle(function() {
       $( ".container .new-tweet textarea" ).focus();
     });
   });
@@ -57,16 +56,16 @@ loadTweets();
 //function to post the new tweet to the tweets file
 $( "#tweetbox" ).submit(function (event) {
   var serialized = ( $( this ).serialize() );
-  var textbox = $("#tweetbox textarea").val();
-  
-
+  var textbox = $("#tweetbox textarea").val().trim();
   event.preventDefault();
-  //empty textbox error alert
-  if (!textbox){
-      $( ".container .new-tweet .error2" ).slideDown( "slow");
-  //maximum tweet length exceeded alert
+//empty textbox error alert
+  if (!textbox ){
+      $( ".container .new-tweet .error2" ).slideDown();
+      $( ".container .new-tweet textarea" ).focus();
+        counter = 140;
+//maximum tweet length exceeded alert
   } else if ((textbox).length > 140) {
-    $( ".container .new-tweet .error1" ).slideToggle( "slow");
+    $( ".container .new-tweet .error1" ).slideDown();
     $( ".container .new-tweet textarea" ).focus();
       } else {
       $.ajax({
@@ -76,11 +75,12 @@ $( "#tweetbox" ).submit(function (event) {
       })
       .then(() => {
         loadTweets();
-      })   
+      })
+      counter = 140;
 //clear text box and errors, reset counter
         $( "#tweetbox textarea").val("");
-        $( ".container .new-tweet .error2" ).slideUp( "fast");
-        $( ".container .new-tweet .error1" ).slideUp( "fast");
+        $( ".container .new-tweet .error2" ).slideUp( "slow");
+        $( ".container .new-tweet .error1" ).slideUp( "slow");
         };   
   })
   // });
