@@ -12,4 +12,6 @@ This is an assignment for Lighthouse Labs with the goal of learning these langua
 
 ## Screenshot
 
-Here is the main page of the project. Please fork and clone and run http://localhost:8080/
+Here is the main page of the project. 
+
+![Screenshot of Tweeter in action.](https://github.com/pmckeegan/tweeter/blob/master/docs/screencap.jpg)
