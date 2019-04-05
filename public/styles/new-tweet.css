@@ -23,11 +23,9 @@
 span.counter {
     float: right;
 }
-
 .red {
   color: red;
 }
-
 .new-tweet .error1 {
   text-align:center;
   color: #ffffff;
@@ -46,7 +44,3 @@ span.counter {
   display: none;
 
 }
-
-
-
--webkit-appearance: none;

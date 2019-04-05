@@ -13,14 +13,12 @@
     height: 100%;
     margin: 0em 2em 6em 2em;
 }
-
 .container .tweet-container:hover {
 	opacity: 1;
 }
 .container .new-tweet {
     display: none;
 }
-
 .container .tweet {
     margin: 2em 0;
     border: 1px solid #b9b9b9;
@@ -43,14 +41,12 @@
     height : 3.5em;
     border-radius: 1em;
 }
-
 .container .tweet-container .username {
     justify-content: flex-start;
     float: left;
     margin: 0em 0em 0em 1em;
     border-radius: 1em;
 }
-
 .container .tweet-container .userhandle {
   justify-content: flex-end;
   float: right;
@@ -60,6 +56,7 @@
 
 /* the tweet */
 .container .tweet-container .content {
+    overflow-wrap: break-word;
     align-items: center;
     clear: both;
     width: 28em;
