@@ -17,7 +17,7 @@ $(".tweet-container").empty();
 }
 //send existing tweets to css
 function createTweetElement(tweetData){
-  let formattedDate = moment(tweetData.created_at).format('MMMM Do YYYY, h:mm a');;
+  let formattedDate = moment(tweetData.created_at).format('MMMM Do YYYY, h:mm a');
   return `
   <article class="tweet"> 
     <header class="header"> 
