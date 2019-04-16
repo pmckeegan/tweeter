@@ -42,7 +42,14 @@
     width : 3.5em;
     height : 3.5em;
     border-radius: 1em;
+    opacity: 0;
 }
+
+.container .tweet-container .icon:hover {
+	opacity: 1;
+}
+
+
 .container .tweet-container .username {
     justify-content: flex-start;
     float: left;
