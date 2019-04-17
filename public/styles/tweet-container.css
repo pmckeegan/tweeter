@@ -29,8 +29,9 @@
     width: 27.9em;
     background:#00a088;
     border-radius: 1em 1em 0em 0em;
+    transition: 0.5s;
 }
-.container .tweet-container .header:hover {
+.container .tweet-container .tweet:hover .header {
 	opacity: 1;
 }
 
@@ -43,9 +44,10 @@
     height : 3.5em;
     border-radius: 1em;
     opacity: 0;
+    transition: 0.5s;
 }
 
-.container .tweet-container .icon:hover {
+.container .tweet-container .tweet:hover .icon {
 	opacity: 1;
 }
 
